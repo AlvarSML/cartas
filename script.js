@@ -1,6 +1,12 @@
 const COSTES = [20,5,5,6,4,2,1];
 const OPCIONES = [null, [[1,1],[0,2]] , [[2,1],[1,2],[0,3]] , [[2,2],[3,1],[1,3],[0,4]] , [[3,2],[2,3],[0,5]] , [[4,2],[2,4],[1,5]] , [[4,3],[3,4],[1,6]] ];
 
+const MANOINICIAL = 5;
+const MAXMANO = 8;
+
+const MANOARRIBA = "manoArriba";
+const MANOABAJO = "manoAbajo";
+
 barajap1 = [];
 manop1 = [];
 mesap1 = [];
@@ -41,4 +47,29 @@ function genMana(){
 		tmpCartas.push(new Carta(0,null,null));
 	}
 	return tmpCartas;
+}
+
+function darMano(jugador,mazo){
+
+	for (let i = 0; i < MANOINICIAL; i ++) {
+		jugador[i] = mazo.splice(rdm(0,mazo.length),1)[0];
+	}
+
+	return jugador;
+}
+
+function rdm(min,max){
+	return Math.floor((Math.random() * max) + min);
+}
+
+/* funciones de renderizado */
+
+function renderMano(mano,lado) {
+	let manoHTML = "";
+
+	mano.forEach(function(carta) {
+		manoHTML += carta.html;
+	});
+
+	document.getElementById(lado).innerHTML = manoHTML;
 }

@@ -1,0 +1,77 @@
+body {
+  width: 1330px;
+  height: 600px;
+
+  background-color: #4e6be9;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr 2fr 2fr;
+  grid-template-columns: 100px 1fr 150px;
+  grid-row-gap: 10px;
+}
+
+div {
+  display: flex;
+}
+
+#mazoArriba {
+  grid-column-start: 1;
+}
+
+#manoArriba {
+  grid-column-start: 2;
+}
+
+#tableroArriba {
+  grid-column-start: 2;
+}
+
+#mazoAbajo {
+  grid-column-start: 1;
+}
+
+#manoAbajo {
+  grid-column-start: 2;
+}
+
+#tableroAbajo {
+  grid-column-start: 2;
+}
+
+/* Cartas */
+
+.carta {
+  width: 100px;
+  height: 80%;
+  margin: 5px;
+  background-color: gray;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nombre {
+  color: white;
+  width: 50%;
+  margin: 10px 5px;
+  height: 10%;
+}
+
+.mana {
+  color: aqua;
+  height: 10%;
+  margin: 10px 5px;
+}
+
+.atk {
+  color: red;
+  width: 40%;
+  text-align: left;
+  margin: 10px
+}
+
+.def {
+  color: green;
+  width: 40%;
+  text-align: right;
+  margin: 10px;
+}
