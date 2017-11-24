@@ -7,13 +7,19 @@ const MAXMANO = 8;
 const MANOARRIBA = "manoArriba";
 const MANOABAJO = "manoAbajo";
 
-barajap1 = [];
-manop1 = [];
-mesap1 = [];
+/* Cosas Player 1 */
+let barajap1 = [];
+let manop1 = [];
+let mesap1 = [];
+let manap1 = 0;
+let hpp1 = 40;
 
-barajap2 = [];
-manop2 = [];
-mesap2 = [];
+/* Cosas Player 2 */
+let barajap2 = [];
+let manop2 = [];
+let mesap2 = [];
+let manap2 = 0;
+let hpp2 = 40;
 
 function generarMazos(){
 	barajap1.push.apply(barajap1,genMana());
@@ -72,4 +78,17 @@ function renderMano(mano,lado) {
 	});
 
 	document.getElementById(lado).innerHTML = manoHTML;
+}
+
+function darCarta(mano,mazo){
+	mano.push(mazo.splice(rdm(0,mazo.length),1)[0]);
+}
+
+function start(){
+	generarMazos();
+	darMano(manop1,barajap1);
+	renderMano(manop1,MANOABAJO);
+
+	darMano(manop2,barajap2);
+	renderMano(manop2,MANOARRIBA);
 }
